@@ -11,6 +11,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
+    io.emit('user clicks', clicks);
     socket.on('user clicks', function () {
         clicks++;
         io.emit('user clicks', clicks);
