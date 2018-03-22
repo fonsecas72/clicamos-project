@@ -13,7 +13,7 @@ script:
    # - packer build -machine-readable packer/app-server.json | tee build.log
    # - "AMI=$(grep 'artifact,0,id' build.log | cut -d, -f6 | cut -d: -f2)"
     - AMI=ami-0c39541f9019d6504
-    - "echo ami = '$AMI' > ami.tfvars"
+    - "echo ami = \""$AMI"\" > ami.tfvars"
     - git status
     - git add ami.tfvars
     - git commit -m"BUMP by travis"
