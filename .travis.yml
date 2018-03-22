@@ -6,7 +6,7 @@ script:
     - sudo unzip packer_1.2.1_linux_amd64.zip -d /tmp
     - sudo mv /tmp/packer /usr/local/bin/
     - packer --version
-    - git clone https://fonsecas72:$githubpassword\@github.com/fonsecas72/clicamos-ops.git
+    - git clone https://$githubtoken@github.com/fonsecas72/clicamos-ops.git
     - cd clicamos-ops
     - git checkout master
     - packer validate packer/app-server.json
