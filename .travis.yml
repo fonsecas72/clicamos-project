@@ -1,14 +1,14 @@
 language: bash
 
 script:
-    - wget https://releases.hashicorp.com/packer/1.2.1/packer_1.2.1_linux_amd64.zip
-    - sudo apt-get install -y unzip
+    - wget -q https://releases.hashicorp.com/packer/1.2.1/packer_1.2.1_linux_amd64.zip
+    - sudo apt-get install -y git unzip
     - sudo unzip packer_1.2.1_linux_amd64.zip -d /tmp
     - sudo mv /tmp/packer /usr/local/bin/
     - packer --version
-    - sudo apt-get install -y git
-    - git clone $clicamos-ops
+    - git clone https://fonsecas72:$githubpassword$@github.com/fonsecas72/clicamos-ops.git
     - cd clicamos-ops
+    - git checkout master
     - packer validate packer/app-server.json
     - packer build -machine-readable packer/app-server.json | tee build.log
     - "AMI=$(grep 'artifact,0,id' build.log | cut -d, -f6 | cut -d: -f2)"
@@ -16,4 +16,4 @@ script:
     - git status
     - git add ami.tfvars
     - git commit -m"BUMP by travis"
-    - git push $clicamos-ops
+    - git push
