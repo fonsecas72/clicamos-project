@@ -7,7 +7,7 @@ script:
     - sudo mv /tmp/packer /usr/local/bin/
     - packer --version
     - sudo apt-get install -y git
-    - git clone https://$githubuserkey@github.com/fonsecas72/clicamos-ops.git
+    - git clone $clicamos-ops
     - cd clicamos-ops
     - packer validate packer/app-server.json
     - packer build -machine-readable packer/app-server.json | tee build.log
@@ -16,5 +16,4 @@ script:
     - git status
     - git add ami.tfvars
     - git commit -m"BUMP by travis"
-    - git push origin master
-
+    - git push $clicamos-ops
