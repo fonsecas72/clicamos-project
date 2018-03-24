@@ -3,20 +3,7 @@
   <head><title>CLcks</title></head>
   <body style="background-color: burlywood;">
       <div style="text-align: center">
-        <span id="clicks" style="display: inline-block; font-size: 6em; font-family: sans-serif">0</span>
-        <form action=""><button>Click Me</button></form>
+        <h1>Hello World</h1>
     </div>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      var socket = io();
-      $('form').submit(function(){
-        socket.emit('user clicks');
-        return false;
-      });
-      socket.on('user clicks', function(clicks){
-        $('#clicks').text(clicks);
-      });
-    </script>
   </body>
 </html>
