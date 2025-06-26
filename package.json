@@ -5,5 +5,14 @@
   "dependencies": {
     "express": "^5.1.0",
     "socket.io": "^4.8.1"
+  },
+  "scripts": {
+    "start": "node -e \"require('./iosocket.js').startServer(process.env.PORT || 5000)\"",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.0.3",
+    "socket.io-client": "^4.8.1",
+    "supertest": "^7.1.1"
   }
 }
